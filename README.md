@@ -2,123 +2,156 @@
 
 **Generative AI-Driven Facility Recommendation & Decision Support System for FITE IT Del**
 
-Asisten cerdas bagi mahasiswa Fakultas Informatika dan Teknik Elektro (FITE) IT Del untuk melapor dan
+Asisten cerdas bagi civitas akademika Fakultas Informatika dan Teknik Elektro (FITE) IT Del untuk melapor dan
 menanyakan status kerusakan fasilitas gedung — proyektor/infokus, AC, jaringan/LAN lab, Idea Hub,
-toilet, saung, dan ruang kelas — sekaligus membantu tim fasilitas memprioritaskan penanganan tiket
-secara otomatis dan terukur.
+kelistrikan/colokan, CCTV, dan ruang kelas/labkom — sekaligus membantu tim sarana prasarana dan teknisi
+memprioritaskan, mengalokasikan, serta menjadwalkan penanganan tiket secara optimal, terukur, dan mematuhi
+seluruh batasan operasional (SOP, kualifikasi teknisi, dan SLA).
 
-> Status proyek saat ini: **Milestone 1 (W02)** — Problem Framing, Spesifikasi PEAS, Baseline
-> Search (UCS/A*), dan inisialisasi repositori.
+> Status Proyek: **Milestone 1 (W02) & Milestone 2 (W04) Terintegrasi Penuh** — Baseline Search, Constraint Satisfaction Problems (CSP) & Genetic Algorithm (GA) Optimization.
 
-## Arsitektur Tingkat Tinggi (3 Lapis — Milestone 1)
+---
+
+## Arsitektur Terpadu 5-Lapis (Milestone 1–5 Roadmap)
 
 ```mermaid
 flowchart TB
     subgraph L1["1. Data & Knowledge Layer"]
-        A1[Draf SOP Fasilitas]
-        A2[Data Tiket Kerusakan]
-    end
-    subgraph L2["2. Reasoning & Search Layer"]
-        B1[Priority Ticket Queue - heapq]
-        B2["UCS / A* Search Engine"]
-    end
-    subgraph L3["3. Interface Layer (rencana Milestone 5)"]
-        C1[Dashboard Gradio]
+        A1["Korpus SOP Fasilitas & Regulasi FITE (sops.py)"]
+        A2["10 Tiket Dummy Resmi (TK-017 s/d TK-026)"]
+        A3["Pool Teknisi FITE (Binsar, Roy, Togu)"]
+        A4["Graf Topologi Kampus FITE Lt. 1 & 2 (graph.py)"]
     end
 
-    A1 --> B2
-    A2 --> B1
-    B1 --> B2
+    subgraph L2["2. Reasoning & Constraint Optimization Layer"]
+        B1["Priority Queue (Min-Heap) & FIFO Tie-Breaker"]
+        B2["UCS & A* Search Engine dengan Heuristik Admissible"]
+        B3["CSP Solver: AC-3 + Backtracking MRV / Degree / LCV / MAC"]
+        B4["GA Solver: Tournament Selection, Crossover, Mutasi & Elitisme"]
+        B5["Precomputed Distance Matrix O(1)"]
+    end
+
+    subgraph L3["3. Interface & Decision Layer"]
+        C1["Unified Facade Engine (solver.py)"]
+        C2["Interactive Terminal REPL Copilot (cli_app.py)"]
+        C3["Sensitivity & Convergence Benchmark Engine"]
+        C4["Gradio Web Dashboard (Rencana Milestone 5)"]
+    end
+
+    A1 --> B3
+    A1 --> B4
+    A2 --> B3
+    A2 --> B4
+    A3 --> B3
+    A3 --> B4
+    A4 --> B2
+    A4 --> B5
+    B5 --> B3
+    B5 --> B4
+    B1 --> C1
     B2 --> C1
+    B3 --> C1
+    B4 --> C1
+    C1 --> C2
+    C1 --> C3
+    C1 --> C4
 ```
 
-Arsitektur penuh proyek akan berkembang menjadi 5 lapis (Data & Document, Knowledge & RAG, Agent &
-Tool, Interface, Observability & Guardrails) sesuai roadmap Milestone 2–5.
+---
 
-## Struktur Direktori
+## Hierarki Direktori Restrukturisasi Proyek
+
+Struktur proyek disusun secara modular, bersih, runtut, dan berorientasi enterprise:
 
 ```
 del-maintops-copilot/
-├── docs/
-│   ├── problem_framing.md       # Bab 1: latar belakang & pain points
-│   ├── peas_specification.md    # Spesifikasi PEAS + klasifikasi lingkungan
-│   ├── sops_fite.md             # Basis pengetahuan SOP fasilitas
-│   └── state_space.md           # Formulasi ruang keadaan (X, A, T, G, C)
-├── src/
-│   ├── search_baseline.py       # Priority queue + UCS + A* search
-│   └── cli.py                   # CLI interaktif: lapor tiket, tanya SOP, rekomendasi rute
-├── tests/
-│   └── test_validation.py       # Pengujian QA (pytest)
+├── docs/                                 # Dokumentasi Teknis Terurut Runtut
+│   ├── 01_problem_framing.md             # Latar Belakang & Perumusan Masalah Bisnis
+│   ├── 02_peas_specification.md          # Spesifikasi Formal PEAS & Karakteristik Lingkungan
+│   ├── 03_state_space_search.md          # Formulasi Ruang Keadaan (X, A, T, G, C) & UCS/A*
+│   ├── 04_sops_knowledge_base.md         # Basis Pengetahuan SOP Terpadu (SOP-01 s/d SOP-08)
+│   ├── 05_constraint_modeling_csp_ga.md  # Pemodelan Matematis Batasan Bisnis (CSP & GA)
+│   └── 06_sensitivity_and_convergence_analysis.md # Analisis Sensitivitas & Kasus Ekstrem
+├── src/                                  # Source Code Python Modular
+│   ├── core/                             # Domain Models & Fundamental Structures
+│   │   ├── __init__.py
+│   │   └── models.py                     # Ticket, MaintenanceTicket, Technician, ScheduleSolution
+│   ├── navigation/                       # Graf Topologi & Engine Pencarian Rute
+│   │   ├── __init__.py
+│   │   ├── graph.py                      # Graf Kanonikal Terpadu Gedung FITE (Lt. 1 & 2)
+│   │   └── router.py                     # UCS, A* Heuristik Admissible, CampusDistanceMatrix
+│   ├── optimization/                     # Mesin Inferensi Pemecahan Batasan
+│   │   ├── __init__.py
+│   │   ├── csp_solver.py                 # AC-3, Backtracking MRV/Degree/LCV/MAC
+│   │   ├── ga_solver.py                  # Algoritma Genetika dengan Turnamen & Elitisme
+│   │   └── solver.py                     # Unified Facade Engine
+│   ├── knowledge/                        # Basis Pengetahuan & Data
+│   │   ├── __init__.py
+│   │   ├── data_loader.py                # 10 Tiket Resmi, Data Teknisi, Generator Kasus Uji
+│   │   └── sops.py                       # SOP FITE, Deteksi Kategori & Urgensi
+│   ├── interfaces/                       # Antarmuka Pengguna
+│   │   ├── __init__.py
+│   │   └── cli_app.py                    # Terminal REPL Interaktif Terpadu
+│   ├── search_baseline.py                # Compatibility bridge untuk modul pencarian
+│   ├── solver.py                         # Compatibility bridge untuk modul solver
+│   ├── cli.py                            # CLI helper & entry point
+│   └── copilot_cli.py                    # Terminal adapter
+├── tests/                                # Test Suite Otomatis (54 Tests Passed 100%)
+│   ├── test_01_search_baseline.py        # Pengujian UCS, A*, Priority Queue (M1)
+│   ├── test_02_csp_solver.py             # Pengujian AC-3, Backtracking MRV/Degree/LCV (M2)
+│   ├── test_03_ga_solver.py              # Pengujian GA Solver & Elitisme Monoton (M2)
+│   ├── test_04_edge_cases.py             # Pengujian Kasus Ekstrem (Over-constrained, Surge, Solo)
+│   ├── test_05_integration_and_cli.py    # Pengujian Integrasi End-to-End M1 -> M2
+│   ├── test_copilot_cli.py               # Pengujian CLI Interaktif
+│   └── test_validation.py                # Validasi Baseline Search
+├── scripts/
+│   ├── generate_unified_report.py        # Generator Laporan Terpadu (Word & PDF)
+│   └── run_benchmarks.py                 # Eksekutor Analisis Sensitivitas
+├── solver.py                             # Root execution entry-point (python solver.py)
+├── Grup01-Tugas01.docx                   # Arsip Dokumen Laporan Tugas 1 (Milestone 1)
+├── Grup01-Tugas02-Terpadu.docx           # LAPORAN UTAMA TERPADU (M1 + M2 BERSATU)
 ├── pyproject.toml
 ├── .gitignore
 └── README.md
 ```
 
-## Instalasi & Menjalankan Proyek (Astral `uv`)
+---
 
-Proyek ini menggunakan [Astral `uv`](https://docs.astral.sh/uv/) sebagai manajer paket Python.
+## Panduan Eksekusi
 
+### 1. Eksekusi Solver (Milestone 2)
 ```bash
-# 1. Install uv (sekali saja, jika belum ada)
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# 2. Clone repositori
-git clone <URL_REPO_TIM>
-cd del-maintops-copilot
-
-# 3. Sinkronisasi environment & dependensi
-uv sync
-
-# 4. Jalankan demo baseline search (non-interaktif)
-uv run python src/search_baseline.py
-
-# 5. Jalankan CLI interaktif (mahasiswa benar-benar bisa lapor & tanya ke bot)
-uv run python src/cli.py
-
-# 6. Jalankan pengujian QA
-uv run pytest tests/ -v
+python solver.py
+# Atau:
+uv run python solver.py
 ```
 
-## CLI Interaktif (`src/cli.py`)
+### 2. Eksekusi Analisis Sensitivitas & Pengujian Kasus Ekstrem
+```bash
+python src/sensitivity_benchmark.py
+```
 
-Selain demo baseline yang hardcoded, tersedia antarmuka baris perintah agar interaksi
-mahasiswa ↔ agen terasa nyata:
+### 3. Eksekusi Terminal Interaktif (Copilot CLI)
+```bash
+python src/copilot_cli.py
+```
+*(Menyediakan opsi interaktif lengkap: pelaporan tiket baru, antrean prioritas, perhitungan rute tercepat UCS/A*, dan optimasi alokasi multi-teknisi CSP/GA).*
 
-1. **Lapor kerusakan fasilitas baru** — mahasiswa memilih lokasi & mendeskripsikan
-   kerusakan; sistem menyarankan urgensi otomatis berdasarkan SOP yang cocok (dengan
-   eskalasi ke "kritis" untuk gangguan jaringan saat jam praktikum) dan memperingatkan
-   bila laporan tampak duplikat.
-2. **Lihat antrian tiket** — urutan prioritas dari `PriorityTicketQueue`.
-3. **Minta rekomendasi rute teknisi** — menjalankan UCS & A* dari Posko Teknisi ke
-   lokasi tiket berprioritas tertinggi berikutnya.
-4. **Tanya SOP penanganan** — pencocokan kata kunci sederhana ke `docs/sops_fite.md`
-   (placeholder Milestone 1; akan digantikan pipeline RAG/ChromaDB di Milestone 3).
-5. **Lihat riwayat penanganan sesi ini**.
+### 4. Menjalankan Seluruh Test Suite Otomatis
+```bash
+pytest -v
+```
+*(Hasil: **54 / 54 PASSED** tanpa kegagalan).*
 
-> Catatan lingkup: modul Q&A SOP di CLI ini murni pencocokan kata kunci, bukan RAG/LLM
-> (itu baru masuk Milestone 3–4). Tujuannya hanya membuat interaksi Milestone 1 terasa
-> nyata sambil tetap dalam batas materi search/priority-queue yang dinilai.
+---
 
-## Ringkasan Milestone 1
+## Ringkasan Luaran & Tim Pengembang
 
-| Deliverable | Lokasi Berkas |
-|---|---|
-| Problem Framing (Bab 1) | `docs/problem_framing.md` |
-| Spesifikasi PEAS | `docs/peas_specification.md` |
-| Draf SOP (basis pengetahuan) | `docs/sops_fite.md` |
-| Formulasi ruang keadaan | `docs/state_space.md` |
-| Baseline search (heapq, UCS, A*) | `src/search_baseline.py` |
-| CLI interaktif (lapor tiket, tanya SOP, rekomendasi rute) | `src/cli.py` |
-| Pengujian QA | `tests/test_validation.py` |
+| Komponen | Penanggung Jawab | Capaian Kunci |
+|---|---|---|
+| **AI Architect & Solver Engineer** | **Lucas Pardede** (12S24015) | Formulasi matematis formal CSP & GA, implementasi AC-3, Backtracking MRV/LCV, GA Elitisme |
+| **Data Modeler & Knowledge Engineer** | **Ika Maria Manurung** (12S24021) | Models domain, graf kanonikal FITE Lt. 1 & 2, distance matrix O(1), pemetaan SOP |
+| **QA, Sensitivity & Interface Lead** | **Geralda Natali Gultom** (12S24051) | Skenario kasus ekstrem, benchmarking sensitivitas, CLI interaktif terpadu, laporan gabungan |
 
-## Tim & Pembagian Peran
-
-| Peran | Tanggung Jawab Milestone 1 |
-|---|---|
-| Data & Knowledge Engineer & QA Lead | Problem framing, draf SOP, pengujian kode |
-| Integration & Interface Engineer | Repo GitHub, `uv`, README, struktur folder |
-| AI Architect | Formulasi state space, skrip baseline search |
-
-## Mata Kuliah
-10S3001 - Artificial Intelligence / Kecerdasan Buatan (3 SKS), Program Studi Sarjana Sistem Informasi,
-Institut Teknologi Del — Semester Gasal 2026/2027.
+- **Tag Rilis Repositori**: `v0.2-milestone2`
+- **Laporan Dokumen Terpadu**: [`Grup01-Tugas02-Terpadu.docx`](file:///Grup01-Tugas02-Terpadu.docx) (menggabungkan Milestone 1 dan Milestone 2 secara utuh).

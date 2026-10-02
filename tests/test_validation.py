@@ -16,7 +16,7 @@ from search_baseline import (  # noqa: E402
     a_star_search,
     uniform_cost_search,
 )
-from copilot_cli import (  # noqa: E402
+from cli import (  # noqa: E402
     find_relevant_sop,
     generate_ticket_id,
     infer_default_urgency,

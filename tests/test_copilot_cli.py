@@ -42,7 +42,7 @@ def test_detect_category_unknown_returns_none():
 
 
 # ---------------------------------------------------------------------------
-# Klasifikasi urgensi (aturan kenaikan sesuai docs/sops_fite.md)
+# Klasifikasi urgensi (aturan kenaikan sesuai docs/04_sops_knowledge_base.md)
 # ---------------------------------------------------------------------------
 
 def test_urgency_proyektor_always_tinggi():
