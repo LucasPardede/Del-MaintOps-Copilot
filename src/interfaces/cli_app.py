@@ -8,6 +8,7 @@ Milestone 1 dan Milestone 2:
 - Pencarian rute navigasi teknisi optimal (UCS & A*)
 - Optimasi penjadwalan multi-teknisi terikat batasan bisnis (CSP & GA Solver)
 - Basis pengetahuan interaktif SOP FITE IT Del
+- Pencarian semantik SOP/kebijakan berbasis vektor (ChromaDB + Sentence-Transformers, Milestone 3)
 """
 
 from __future__ import annotations
@@ -16,6 +17,7 @@ import itertools
 import sys
 from dataclasses import dataclass, field
 from datetime import datetime
+from pathlib import Path
 from typing import Dict, List, Optional
 
 from core.models import MaintenanceTicket, PriorityTicketQueue, Ticket
@@ -44,7 +46,8 @@ MENU = """
   6. Lihat daftar lokasi & topologi gedung FITE
   7. Lihat riwayat tiket selesai (Resolved)
   8. Bantuan (penjelasan menu)
-  9. Keluar
+  9. Cari SOP (Semantic Search - Milestone 3)
+  10. Keluar
 ======================================================================"""
 
 HELP_TEXT = """
@@ -61,7 +64,10 @@ Panduan Menu Del-MaintOps Copilot:
   6. Lihat Daftar Lokasi      -> Menampilkan seluruh simpul graf ruangan lantai 1 & 2 FITE.
   7. Lihat Riwayat            -> Menampilkan riwayat tiket yang sudah terselesaikan pada sesi ini.
   8. Bantuan                  -> Menampilkan petunjuk ini.
-  9. Keluar                   -> Mengakhiri sesi aplikasi.
+  9. Cari SOP (Semantic)      -> Mencari SOP/kebijakan dengan kalimat bebas (pencarian vektor,
+                                 Cosine Similarity). Kueri di luar cakupan ditolak otomatis.
+                                 Membutuhkan indeks: uv run python scripts/build_index.py --reset
+  10. Keluar                  -> Mengakhiri sesi aplikasi.
 """
 
 
@@ -86,6 +92,7 @@ class DelMaintOpsAppCLI:
         self.history: List[TicketRecord] = []
         self.start_location = start_location
         self._id_counter = itertools.count(1)
+        self._vector_store = None  # dimuat malas (lazy) saat menu 9 pertama kali dipakai
 
     def _next_ticket_id(self) -> str:
         return f"TKT-{next(self._id_counter):03d}"
@@ -302,6 +309,82 @@ class DelMaintOpsAppCLI:
                     for step_num, step_desc in enumerate(s["procedure"], start=1):
                         print(f"        {step_num}. {step_desc}")
 
+    # -- 9. Cari SOP (Semantic Search, Milestone 3) --
+    SEMANTIC_SNIPPET_CHARS = 220
+
+    def _get_vector_store(self):
+        """Memuat SOPVectorStore secara lazy; mengembalikan None (disertai petunjuk) jika tak tersedia.
+
+        Impor ditunda agar CLI lama tetap berjalan tanpa chromadb/sentence-transformers
+        maupun tanpa indeks. Atribut ``_vector_store`` yang sudah terisi dipakai apa adanya.
+        """
+        if self._vector_store is not None:
+            return self._vector_store
+        try:
+            from knowledge.retrieval_config import PERSIST_DIR
+        except ImportError:  # pragma: no cover - modul konfigurasi selalu ada di repo
+            self._bot("Modul pencarian semantik belum tersedia pada repositori ini.")
+            return None
+        index_dir = Path(__file__).resolve().parents[2] / PERSIST_DIR
+        if not index_dir.exists():
+            self._bot(
+                "Indeks pencarian semantik belum dibangun. Jalankan terlebih dahulu:\n"
+                "      uv run python scripts/build_index.py --reset"
+            )
+            return None
+        try:
+            from knowledge.vector_store import SOPVectorStore
+
+            store = SOPVectorStore()
+        except ImportError as exc:
+            self._bot(
+                f"Dependensi pencarian semantik belum terpasang ({exc}). "
+                "Jalankan: uv sync (chromadb & sentence-transformers)."
+            )
+            return None
+        if store.count() == 0:
+            self._bot(
+                "Indeks kosong. Jalankan terlebih dahulu:\n"
+                "      uv run python scripts/build_index.py --reset"
+            )
+            return None
+        self._vector_store = store
+        return store
+
+    def flow_semantic_search(self) -> None:
+        self._bot("Pencarian semantik SOP & kebijakan FITE. Tulis pertanyaan dengan kalimat bebas.")
+        query = self._ask("Pertanyaan Anda: ").strip()
+        if not query:
+            self._bot("Pertanyaan tidak boleh kosong.")
+            return
+        store = self._get_vector_store()
+        if store is None:
+            return
+
+        response = store.search(query)
+        if response.rejected:
+            self._bot(
+                "Pertanyaan ini berada di luar cakupan basis pengetahuan SOP/kebijakan fasilitas FITE "
+                f"(kemiripan tertinggi {response.top_similarity:.3f} < ambang {response.threshold:.2f}). "
+                "Coba gunakan kalimat yang menjelaskan kerusakan fasilitas, atau gunakan menu 5 (Tanya SOP)."
+            )
+            return
+
+        self._bot(f"Ditemukan {len(response.results)} potongan dokumen paling relevan (kemiripan kosinus):")
+        for rank, res in enumerate(response.results, start=1):
+            meta = res.metadata
+            sla = meta.get("sla_hours", 0)
+            sla_txt = f"{sla} jam" if sla else "tidak berlaku"
+            snippet = " ".join(res.text.split())
+            title_prefix = f"Judul: {str(meta.get('title', '')).strip().rstrip('.')}. "
+            if snippet.startswith(title_prefix):  # judul sudah tampil di baris atas
+                snippet = snippet[len(title_prefix):]
+            if len(snippet) > self.SEMANTIC_SNIPPET_CHARS:
+                snippet = snippet[: self.SEMANTIC_SNIPPET_CHARS].rsplit(" ", 1)[0] + " ..."
+            print(f"  {rank}. [{meta.get('doc_id', '?')}] {meta.get('title', '')}")
+            print(f"     Kemiripan: {res.similarity:.3f} | Kategori: {meta.get('category', '-')} | SLA: {sla_txt}")
+            print(f"     {snippet}")
+
     # -- 6. Lihat Daftar Lokasi --
     def flow_lokasi(self) -> None:
         self._bot("Daftar lokasi ruangan valid pada topologi fisik gedung FITE:")
@@ -326,9 +409,9 @@ class DelMaintOpsAppCLI:
         self._bot("Selamat datang di Del-MaintOps Copilot FITE IT Del. Silakan pilih menu di bawah:")
         while True:
             print(MENU)
-            choice = self._ask("Pilih nomor menu (1-9): ").strip().lower()
+            choice = self._ask("Pilih nomor menu (1-10): ").strip().lower()
 
-            if choice in {"9", "keluar", "exit", "quit", "bye"}:
+            if choice in {"10", "keluar", "exit", "quit", "bye"}:
                 self._bot("Terima kasih telah menggunakan Del-MaintOps Copilot. Sampai jumpa!")
                 break
             elif choice == "1":
@@ -345,10 +428,12 @@ class DelMaintOpsAppCLI:
                 self.flow_lokasi()
             elif choice == "7":
                 self.flow_riwayat()
+            elif choice == "9":
+                self.flow_semantic_search()
             elif choice in {"8", "bantuan", "help", "menu", "?"}:
                 print(HELP_TEXT)
             else:
-                self._bot("Pilihan tidak valid. Masukkan angka 1-9 sesuai menu.")
+                self._bot("Pilihan tidak valid. Masukkan angka 1-10 sesuai menu.")
 
 
 def main() -> None:
