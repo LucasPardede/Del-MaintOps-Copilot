@@ -1,0 +1,3611 @@
+{
+  "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "model_max_seq_length": 128,
+  "query_set": [
+    {
+      "id": "Q01",
+      "type": "relevan",
+      "query": "Bagaimana menangani proyektor yang tidak menampilkan gambar?",
+      "expected_doc_ids": [
+        "SOP-01"
+      ]
+    },
+    {
+      "id": "Q02",
+      "type": "sinonim",
+      "query": "Pendingin ruangan mengeluarkan air dan tidak terasa dingin",
+      "expected_doc_ids": [
+        "SOP-02"
+      ]
+    },
+    {
+      "id": "Q03",
+      "type": "sinonim",
+      "query": "Koneksi internet komputer laboratorium terputus",
+      "expected_doc_ids": [
+        "SOP-03"
+      ]
+    },
+    {
+      "id": "Q04",
+      "type": "kontekstual",
+      "query": "Apa tindakan ketika jaringan mati saat praktikum berlangsung?",
+      "expected_doc_ids": [
+        "SOP-03",
+        "KB-12"
+      ]
+    },
+    {
+      "id": "Q05",
+      "type": "ambigu",
+      "query": "Siapa yang boleh menangani masalah listrik di ruang server?",
+      "expected_doc_ids": [
+        "SOP-05",
+        "KB-10",
+        "KB-14"
+      ]
+    },
+    {
+      "id": "Q06",
+      "type": "ambigu",
+      "query": "Apa yang harus dilakukan jika perangkat presentasi rusak dan unit pengganti diperlukan?",
+      "expected_doc_ids": [
+        "SOP-01",
+        "KB-13"
+      ]
+    },
+    {
+      "id": "Q07",
+      "type": "relevan",
+      "query": "Bagaimana cara melaporkan kerusakan fasilitas dan membuat tiket?",
+      "expected_doc_ids": [
+        "KB-11"
+      ]
+    },
+    {
+      "id": "Q08",
+      "type": "out_of_domain",
+      "query": "Bagaimana resep membuat nasi goreng seafood?",
+      "expected_doc_ids": []
+    },
+    {
+      "id": "Q09",
+      "type": "out_of_domain",
+      "query": "Siapa pemenang pertandingan sepak bola tadi malam?",
+      "expected_doc_ids": []
+    }
+  ],
+  "results": [
+    {
+      "chunk_size_words": 60,
+      "overlap_words": 10,
+      "prepend_title": true,
+      "n_chunks": 94,
+      "token_max": 125,
+      "token_p95": 116,
+      "model_max_seq_length": 128,
+      "chunks_over_model_limit": 0,
+      "hit_at_1": 0.7142857142857143,
+      "hit_at_3": 0.8571428571428571,
+      "mrr": 0.8214285714285714,
+      "mean_best_target_cosine": 0.5938947796821594,
+      "ood_top1_scores": [
+        0.12533161044120789,
+        0.19920502603054047
+      ],
+      "query_results": [
+        {
+          "query_id": "Q01",
+          "query_type": "relevan",
+          "query": "Bagaimana menangani proyektor yang tidak menampilkan gambar?",
+          "expected_doc_ids": [
+            "SOP-01"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c003",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.548896312713623
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.49808770418167114
+            },
+            {
+              "chunk_id": "SOP-07-c005",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.4905984401702881
+            },
+            {
+              "chunk_id": "SOP-08-c005",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.47640570998191833
+            },
+            {
+              "chunk_id": "SOP-07-c000",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.4764055013656616
+            }
+          ],
+          "top1_score": 0.548896312713623,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q02",
+          "query_type": "sinonim",
+          "query": "Pendingin ruangan mengeluarkan air dan tidak terasa dingin",
+          "expected_doc_ids": [
+            "SOP-02"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-02-c004",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.5537189245223999
+            },
+            {
+              "chunk_id": "SOP-02-c000",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.5080230236053467
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.44869059324264526
+            },
+            {
+              "chunk_id": "SOP-02-c005",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.41197413206100464
+            },
+            {
+              "chunk_id": "SOP-02-c002",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.3667451739311218
+            }
+          ],
+          "top1_score": 0.5537189245223999,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q03",
+          "query_type": "sinonim",
+          "query": "Koneksi internet komputer laboratorium terputus",
+          "expected_doc_ids": [
+            "SOP-03"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6110915541648865
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5520082712173462
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5486137270927429
+            },
+            {
+              "chunk_id": "SOP-06-c000",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5309515595436096
+            },
+            {
+              "chunk_id": "SOP-06-c002",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5139074325561523
+            }
+          ],
+          "top1_score": 0.6110915541648865,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q04",
+          "query_type": "kontekstual",
+          "query": "Apa tindakan ketika jaringan mati saat praktikum berlangsung?",
+          "expected_doc_ids": [
+            "SOP-03",
+            "KB-12"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6066876649856567
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5806255340576172
+            },
+            {
+              "chunk_id": "SOP-05-c005",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5463981628417969
+            },
+            {
+              "chunk_id": "KB-12-c002",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5431564450263977
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5289778709411621
+            }
+          ],
+          "top1_score": 0.6066876649856567,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q05",
+          "query_type": "ambigu",
+          "query": "Siapa yang boleh menangani masalah listrik di ruang server?",
+          "expected_doc_ids": [
+            "SOP-05",
+            "KB-10",
+            "KB-14"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-05-c005",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.64400315284729
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.6005172729492188
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5575836896896362
+            },
+            {
+              "chunk_id": "SOP-03-c005",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5523289442062378
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5425835847854614
+            }
+          ],
+          "top1_score": 0.64400315284729,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q06",
+          "query_type": "ambigu",
+          "query": "Apa yang harus dilakukan jika perangkat presentasi rusak dan unit pengganti diperlukan?",
+          "expected_doc_ids": [
+            "SOP-01",
+            "KB-13"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c004",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6754701733589172
+            },
+            {
+              "chunk_id": "KB-13-c005",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6545860767364502
+            },
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6213756799697876
+            },
+            {
+              "chunk_id": "KB-13-c006",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.5939269065856934
+            },
+            {
+              "chunk_id": "SOP-06-c004",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5722312927246094
+            }
+          ],
+          "top1_score": 0.6754701733589172,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q07",
+          "query_type": "relevan",
+          "query": "Bagaimana cara melaporkan kerusakan fasilitas dan membuat tiket?",
+          "expected_doc_ids": [
+            "KB-11"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-04-c005",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.699968695640564
+            },
+            {
+              "chunk_id": "SOP-04-c004",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.6061733961105347
+            },
+            {
+              "chunk_id": "SOP-04-c003",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.6055038571357727
+            },
+            {
+              "chunk_id": "KB-11-c000",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.5682042837142944
+            },
+            {
+              "chunk_id": "KB-09-c004",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.550490140914917
+            }
+          ],
+          "top1_score": 0.699968695640564,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q08",
+          "query_type": "out_of_domain",
+          "query": "Bagaimana resep membuat nasi goreng seafood?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.12533161044120789
+            },
+            {
+              "chunk_id": "SOP-05-c003",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.0994919165968895
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.08856359869241714
+            },
+            {
+              "chunk_id": "SOP-07-c003",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.08200499415397644
+            },
+            {
+              "chunk_id": "SOP-02-c003",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.08188898861408234
+            }
+          ],
+          "top1_score": 0.12533161044120789,
+          "top1_is_expected": null
+        },
+        {
+          "query_id": "Q09",
+          "query_type": "out_of_domain",
+          "query": "Siapa pemenang pertandingan sepak bola tadi malam?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "SOP-01-c004",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.19920502603054047
+            },
+            {
+              "chunk_id": "KB-14-c004",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.15493223071098328
+            },
+            {
+              "chunk_id": "KB-09-c006",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.1393871307373047
+            },
+            {
+              "chunk_id": "SOP-07-c004",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.12902185320854187
+            },
+            {
+              "chunk_id": "SOP-04-c005",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.11463508009910583
+            }
+          ],
+          "top1_score": 0.19920502603054047,
+          "top1_is_expected": null
+        }
+      ]
+    },
+    {
+      "chunk_size_words": 60,
+      "overlap_words": 10,
+      "prepend_title": false,
+      "n_chunks": 94,
+      "token_max": 112,
+      "token_p95": 102,
+      "model_max_seq_length": 128,
+      "chunks_over_model_limit": 0,
+      "hit_at_1": 0.7142857142857143,
+      "hit_at_3": 0.8571428571428571,
+      "mrr": 0.8142857142857143,
+      "mean_best_target_cosine": 0.5752764216491154,
+      "ood_top1_scores": [
+        0.11810211092233658,
+        0.20690375566482544
+      ],
+      "query_results": [
+        {
+          "query_id": "Q01",
+          "query_type": "relevan",
+          "query": "Bagaimana menangani proyektor yang tidak menampilkan gambar?",
+          "expected_doc_ids": [
+            "SOP-01"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c003",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.5398208498954773
+            },
+            {
+              "chunk_id": "SOP-07-c005",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.498879075050354
+            },
+            {
+              "chunk_id": "SOP-07-c000",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.46446970105171204
+            },
+            {
+              "chunk_id": "SOP-08-c000",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.45958101749420166
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.45879220962524414
+            }
+          ],
+          "top1_score": 0.5398208498954773,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q02",
+          "query_type": "sinonim",
+          "query": "Pendingin ruangan mengeluarkan air dan tidak terasa dingin",
+          "expected_doc_ids": [
+            "SOP-02"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-02-c000",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.46378859877586365
+            },
+            {
+              "chunk_id": "SOP-02-c004",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.4334148168563843
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.4026758670806885
+            },
+            {
+              "chunk_id": "SOP-02-c005",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.3446738123893738
+            },
+            {
+              "chunk_id": "SOP-02-c002",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.24464234709739685
+            }
+          ],
+          "top1_score": 0.46378859877586365,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q03",
+          "query_type": "sinonim",
+          "query": "Koneksi internet komputer laboratorium terputus",
+          "expected_doc_ids": [
+            "SOP-03"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6080997586250305
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5274788737297058
+            },
+            {
+              "chunk_id": "KB-10-c004",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.5222729444503784
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5118803977966309
+            },
+            {
+              "chunk_id": "SOP-06-c000",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5046120882034302
+            }
+          ],
+          "top1_score": 0.6080997586250305,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q04",
+          "query_type": "kontekstual",
+          "query": "Apa tindakan ketika jaringan mati saat praktikum berlangsung?",
+          "expected_doc_ids": [
+            "SOP-03",
+            "KB-12"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6304501295089722
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.582379937171936
+            },
+            {
+              "chunk_id": "KB-12-c002",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5493202209472656
+            },
+            {
+              "chunk_id": "SOP-05-c005",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5284382104873657
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5094616413116455
+            }
+          ],
+          "top1_score": 0.6304501295089722,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q05",
+          "query_type": "ambigu",
+          "query": "Siapa yang boleh menangani masalah listrik di ruang server?",
+          "expected_doc_ids": [
+            "SOP-05",
+            "KB-10",
+            "KB-14"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-05-c005",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.6207702159881592
+            },
+            {
+              "chunk_id": "KB-11-c002",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.5758957862854004
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5305171608924866
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5302618145942688
+            },
+            {
+              "chunk_id": "SOP-02-c002",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.5252727270126343
+            }
+          ],
+          "top1_score": 0.6207702159881592,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q06",
+          "query_type": "ambigu",
+          "query": "Apa yang harus dilakukan jika perangkat presentasi rusak dan unit pengganti diperlukan?",
+          "expected_doc_ids": [
+            "SOP-01",
+            "KB-13"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c004",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6617064476013184
+            },
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6298410892486572
+            },
+            {
+              "chunk_id": "SOP-06-c004",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.6276203393936157
+            },
+            {
+              "chunk_id": "KB-13-c005",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6006228923797607
+            },
+            {
+              "chunk_id": "KB-13-c006",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.571670413017273
+            }
+          ],
+          "top1_score": 0.6617064476013184,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q07",
+          "query_type": "relevan",
+          "query": "Bagaimana cara melaporkan kerusakan fasilitas dan membuat tiket?",
+          "expected_doc_ids": [
+            "KB-11"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.6280299425125122
+            },
+            {
+              "chunk_id": "KB-11-c000",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.58332759141922
+            },
+            {
+              "chunk_id": "KB-15-c001",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.582524299621582
+            },
+            {
+              "chunk_id": "SOP-04-c003",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.5723397135734558
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5580106377601624
+            }
+          ],
+          "top1_score": 0.6280299425125122,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q08",
+          "query_type": "out_of_domain",
+          "query": "Bagaimana resep membuat nasi goreng seafood?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.11810211092233658
+            },
+            {
+              "chunk_id": "SOP-02-c003",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.10695395618677139
+            },
+            {
+              "chunk_id": "SOP-04-c005",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.09744058549404144
+            },
+            {
+              "chunk_id": "SOP-07-c003",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.09698544442653656
+            },
+            {
+              "chunk_id": "SOP-08-c005",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.08695076406002045
+            }
+          ],
+          "top1_score": 0.11810211092233658,
+          "top1_is_expected": null
+        },
+        {
+          "query_id": "Q09",
+          "query_type": "out_of_domain",
+          "query": "Siapa pemenang pertandingan sepak bola tadi malam?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-09-c006",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.20690375566482544
+            },
+            {
+              "chunk_id": "SOP-01-c004",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.15617097914218903
+            },
+            {
+              "chunk_id": "SOP-07-c004",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.1521928459405899
+            },
+            {
+              "chunk_id": "KB-15-c001",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.14988553524017334
+            },
+            {
+              "chunk_id": "KB-14-c004",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.12064047157764435
+            }
+          ],
+          "top1_score": 0.20690375566482544,
+          "top1_is_expected": null
+        }
+      ]
+    },
+    {
+      "chunk_size_words": 80,
+      "overlap_words": 15,
+      "prepend_title": true,
+      "n_chunks": 76,
+      "token_max": 161,
+      "token_p95": 152,
+      "model_max_seq_length": 128,
+      "chunks_over_model_limit": 29,
+      "hit_at_1": 0.8571428571428571,
+      "hit_at_3": 0.8571428571428571,
+      "mrr": 0.8928571428571429,
+      "mean_best_target_cosine": 0.5968474490301949,
+      "ood_top1_scores": [
+        0.10721191763877869,
+        0.19920502603054047
+      ],
+      "query_results": [
+        {
+          "query_id": "Q01",
+          "query_type": "relevan",
+          "query": "Bagaimana menangani proyektor yang tidak menampilkan gambar?",
+          "expected_doc_ids": [
+            "SOP-01"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-01-c005",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.5245609283447266
+            },
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.5054217576980591
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.49808770418167114
+            },
+            {
+              "chunk_id": "SOP-08-c004",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.49641692638397217
+            },
+            {
+              "chunk_id": "SOP-07-c000",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.4764055013656616
+            }
+          ],
+          "top1_score": 0.5245609283447266,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q02",
+          "query_type": "sinonim",
+          "query": "Pendingin ruangan mengeluarkan air dan tidak terasa dingin",
+          "expected_doc_ids": [
+            "SOP-02"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-02-c000",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.5003671646118164
+            },
+            {
+              "chunk_id": "SOP-02-c003",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.41478875279426575
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.39724767208099365
+            },
+            {
+              "chunk_id": "SOP-02-c004",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.3755815625190735
+            },
+            {
+              "chunk_id": "SOP-02-c005",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.2603939473628998
+            }
+          ],
+          "top1_score": 0.5003671646118164,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q03",
+          "query_type": "sinonim",
+          "query": "Koneksi internet komputer laboratorium terputus",
+          "expected_doc_ids": [
+            "SOP-03"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6293411254882812
+            },
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5813538432121277
+            },
+            {
+              "chunk_id": "KB-10-c003",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.570557177066803
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5619263648986816
+            },
+            {
+              "chunk_id": "SOP-06-c000",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5375277996063232
+            }
+          ],
+          "top1_score": 0.6293411254882812,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q04",
+          "query_type": "kontekstual",
+          "query": "Apa tindakan ketika jaringan mati saat praktikum berlangsung?",
+          "expected_doc_ids": [
+            "SOP-03",
+            "KB-12"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6375361680984497
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5822096467018127
+            },
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5491222143173218
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5436631441116333
+            },
+            {
+              "chunk_id": "SOP-05-c004",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5370079278945923
+            }
+          ],
+          "top1_score": 0.6375361680984497,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q05",
+          "query_type": "ambigu",
+          "query": "Siapa yang boleh menangani masalah listrik di ruang server?",
+          "expected_doc_ids": [
+            "SOP-05",
+            "KB-10",
+            "KB-14"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-05-c004",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.6447310447692871
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5933266282081604
+            },
+            {
+              "chunk_id": "KB-14-c002",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.5446289777755737
+            },
+            {
+              "chunk_id": "KB-10-c001",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.5421149730682373
+            },
+            {
+              "chunk_id": "SOP-02-c002",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.5353599786758423
+            }
+          ],
+          "top1_score": 0.6447310447692871,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q06",
+          "query_type": "ambigu",
+          "query": "Apa yang harus dilakukan jika perangkat presentasi rusak dan unit pengganti diperlukan?",
+          "expected_doc_ids": [
+            "SOP-01",
+            "KB-13"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c004",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6579108238220215
+            },
+            {
+              "chunk_id": "KB-13-c003",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6452251672744751
+            },
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.644212007522583
+            },
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6251653432846069
+            },
+            {
+              "chunk_id": "SOP-06-c003",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.599503755569458
+            }
+          ],
+          "top1_score": 0.6579108238220215,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q07",
+          "query_type": "relevan",
+          "query": "Bagaimana cara melaporkan kerusakan fasilitas dan membuat tiket?",
+          "expected_doc_ids": [
+            "KB-11"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-04-c004",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.6141350269317627
+            },
+            {
+              "chunk_id": "SOP-04-c003",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.6055037975311279
+            },
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.6042444109916687
+            },
+            {
+              "chunk_id": "KB-11-c000",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.5834848880767822
+            },
+            {
+              "chunk_id": "KB-09-c003",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.5675431489944458
+            }
+          ],
+          "top1_score": 0.6141350269317627,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q08",
+          "query_type": "out_of_domain",
+          "query": "Bagaimana resep membuat nasi goreng seafood?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.10721191763877869
+            },
+            {
+              "chunk_id": "SOP-07-c002",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.09297530353069305
+            },
+            {
+              "chunk_id": "SOP-02-c003",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.07808706164360046
+            },
+            {
+              "chunk_id": "SOP-01-c005",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.07769101858139038
+            },
+            {
+              "chunk_id": "KB-14-c002",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.07093828171491623
+            }
+          ],
+          "top1_score": 0.10721191763877869,
+          "top1_is_expected": null
+        },
+        {
+          "query_id": "Q09",
+          "query_type": "out_of_domain",
+          "query": "Siapa pemenang pertandingan sepak bola tadi malam?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "SOP-01-c004",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.19920502603054047
+            },
+            {
+              "chunk_id": "KB-14-c004",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.15493223071098328
+            },
+            {
+              "chunk_id": "SOP-07-c003",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.12902188301086426
+            },
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.1284286230802536
+            },
+            {
+              "chunk_id": "KB-09-c005",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.12236852943897247
+            }
+          ],
+          "top1_score": 0.19920502603054047,
+          "top1_is_expected": null
+        }
+      ]
+    },
+    {
+      "chunk_size_words": 80,
+      "overlap_words": 15,
+      "prepend_title": false,
+      "n_chunks": 76,
+      "token_max": 146,
+      "token_p95": 137,
+      "model_max_seq_length": 128,
+      "chunks_over_model_limit": 5,
+      "hit_at_1": 0.7142857142857143,
+      "hit_at_3": 0.8571428571428571,
+      "mrr": 0.8095238095238095,
+      "mean_best_target_cosine": 0.5675667694636753,
+      "ood_top1_scores": [
+        0.09995868802070618,
+        0.1889665573835373
+      ],
+      "query_results": [
+        {
+          "query_id": "Q01",
+          "query_type": "relevan",
+          "query": "Bagaimana menangani proyektor yang tidak menampilkan gambar?",
+          "expected_doc_ids": [
+            "SOP-01"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.487764447927475
+            },
+            {
+              "chunk_id": "SOP-07-c000",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.46446970105171204
+            },
+            {
+              "chunk_id": "SOP-08-c004",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.46143198013305664
+            },
+            {
+              "chunk_id": "SOP-07-c004",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.4598870277404785
+            },
+            {
+              "chunk_id": "SOP-08-c000",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.45958101749420166
+            }
+          ],
+          "top1_score": 0.487764447927475,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q02",
+          "query_type": "sinonim",
+          "query": "Pendingin ruangan mengeluarkan air dan tidak terasa dingin",
+          "expected_doc_ids": [
+            "SOP-02"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-02-c000",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.416087806224823
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.414753794670105
+            },
+            {
+              "chunk_id": "SOP-02-c003",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.35547924041748047
+            },
+            {
+              "chunk_id": "SOP-02-c004",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.32506534457206726
+            },
+            {
+              "chunk_id": "SOP-02-c005",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.2568458914756775
+            }
+          ],
+          "top1_score": 0.416087806224823,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q03",
+          "query_type": "sinonim",
+          "query": "Koneksi internet komputer laboratorium terputus",
+          "expected_doc_ids": [
+            "SOP-03"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6333117485046387
+            },
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5515226721763611
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5457306504249573
+            },
+            {
+              "chunk_id": "KB-10-c003",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.5446416139602661
+            },
+            {
+              "chunk_id": "SOP-06-c000",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5114105939865112
+            }
+          ],
+          "top1_score": 0.6333117485046387,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q04",
+          "query_type": "kontekstual",
+          "query": "Apa tindakan ketika jaringan mati saat praktikum berlangsung?",
+          "expected_doc_ids": [
+            "SOP-03",
+            "KB-12"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.634850263595581
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6042803525924683
+            },
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5509880781173706
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5393787622451782
+            },
+            {
+              "chunk_id": "KB-12-c001",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5263465642929077
+            }
+          ],
+          "top1_score": 0.634850263595581,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q05",
+          "query_type": "ambigu",
+          "query": "Siapa yang boleh menangani masalah listrik di ruang server?",
+          "expected_doc_ids": [
+            "SOP-05",
+            "KB-10",
+            "KB-14"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-05-c004",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.6134629249572754
+            },
+            {
+              "chunk_id": "SOP-02-c002",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.5315712690353394
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5126010179519653
+            },
+            {
+              "chunk_id": "KB-10-c001",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.5104593634605408
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5097132325172424
+            }
+          ],
+          "top1_score": 0.6134629249572754,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q06",
+          "query_type": "ambigu",
+          "query": "Apa yang harus dilakukan jika perangkat presentasi rusak dan unit pengganti diperlukan?",
+          "expected_doc_ids": [
+            "SOP-01",
+            "KB-13"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6305375695228577
+            },
+            {
+              "chunk_id": "KB-13-c004",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6266921758651733
+            },
+            {
+              "chunk_id": "KB-13-c003",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6204904317855835
+            },
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6050122976303101
+            },
+            {
+              "chunk_id": "SOP-07-c002",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.5543737411499023
+            }
+          ],
+          "top1_score": 0.6305375695228577,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q07",
+          "query_type": "relevan",
+          "query": "Bagaimana cara melaporkan kerusakan fasilitas dan membuat tiket?",
+          "expected_doc_ids": [
+            "KB-11"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.6404022574424744
+            },
+            {
+              "chunk_id": "KB-11-c000",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.5859248638153076
+            },
+            {
+              "chunk_id": "SOP-04-c004",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.5841149687767029
+            },
+            {
+              "chunk_id": "KB-09-c003",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.5760682821273804
+            },
+            {
+              "chunk_id": "SOP-04-c003",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.5723397135734558
+            }
+          ],
+          "top1_score": 0.6404022574424744,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q08",
+          "query_type": "out_of_domain",
+          "query": "Bagaimana resep membuat nasi goreng seafood?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.09995868802070618
+            },
+            {
+              "chunk_id": "SOP-07-c002",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.09884539246559143
+            },
+            {
+              "chunk_id": "SOP-08-c002",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.09437549859285355
+            },
+            {
+              "chunk_id": "SOP-08-c004",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.08408011496067047
+            },
+            {
+              "chunk_id": "SOP-02-c003",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.08032694458961487
+            }
+          ],
+          "top1_score": 0.09995868802070618,
+          "top1_is_expected": null
+        },
+        {
+          "query_id": "Q09",
+          "query_type": "out_of_domain",
+          "query": "Siapa pemenang pertandingan sepak bola tadi malam?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-09-c005",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.1889665573835373
+            },
+            {
+              "chunk_id": "SOP-01-c004",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.15617097914218903
+            },
+            {
+              "chunk_id": "SOP-07-c003",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.1521928459405899
+            },
+            {
+              "chunk_id": "KB-09-c004",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.13535557687282562
+            },
+            {
+              "chunk_id": "KB-15-c001",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.12796396017074585
+            }
+          ],
+          "top1_score": 0.1889665573835373,
+          "top1_is_expected": null
+        }
+      ]
+    },
+    {
+      "chunk_size_words": 100,
+      "overlap_words": 15,
+      "prepend_title": true,
+      "n_chunks": 61,
+      "token_max": 201,
+      "token_p95": 173,
+      "model_max_seq_length": 128,
+      "chunks_over_model_limit": 39,
+      "hit_at_1": 0.8571428571428571,
+      "hit_at_3": 0.8571428571428571,
+      "mrr": 0.8928571428571429,
+      "mean_best_target_cosine": 0.5847110152244568,
+      "ood_top1_scores": [
+        0.1038498729467392,
+        0.12436143308877945
+      ],
+      "query_results": [
+        {
+          "query_id": "Q01",
+          "query_type": "relevan",
+          "query": "Bagaimana menangani proyektor yang tidak menampilkan gambar?",
+          "expected_doc_ids": [
+            "SOP-01"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-01-c003",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.5245609283447266
+            },
+            {
+              "chunk_id": "SOP-08-c003",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.49641692638397217
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.49360376596450806
+            },
+            {
+              "chunk_id": "SOP-07-c000",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.4764055013656616
+            },
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.472886860370636
+            }
+          ],
+          "top1_score": 0.5245609283447266,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q02",
+          "query_type": "sinonim",
+          "query": "Pendingin ruangan mengeluarkan air dan tidak terasa dingin",
+          "expected_doc_ids": [
+            "SOP-02"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-02-c000",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.5003671646118164
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.4085816740989685
+            },
+            {
+              "chunk_id": "SOP-02-c003",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.3755815625190735
+            },
+            {
+              "chunk_id": "SOP-02-c004",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.2603939473628998
+            },
+            {
+              "chunk_id": "SOP-02-c002",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.22023382782936096
+            }
+          ],
+          "top1_score": 0.5003671646118164,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q03",
+          "query_type": "sinonim",
+          "query": "Koneksi internet komputer laboratorium terputus",
+          "expected_doc_ids": [
+            "SOP-03"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6025023460388184
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5619263648986816
+            },
+            {
+              "chunk_id": "SOP-06-c001",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5270199775695801
+            },
+            {
+              "chunk_id": "SOP-06-c000",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5187439918518066
+            },
+            {
+              "chunk_id": "KB-10-c002",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.5031819939613342
+            }
+          ],
+          "top1_score": 0.6025023460388184,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q04",
+          "query_type": "kontekstual",
+          "query": "Apa tindakan ketika jaringan mati saat praktikum berlangsung?",
+          "expected_doc_ids": [
+            "SOP-03",
+            "KB-12"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6308243274688721
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5822096467018127
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5436631441116333
+            },
+            {
+              "chunk_id": "KB-12-c001",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.519933819770813
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.49178290367126465
+            }
+          ],
+          "top1_score": 0.6308243274688721,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q05",
+          "query_type": "ambigu",
+          "query": "Siapa yang boleh menangani masalah listrik di ruang server?",
+          "expected_doc_ids": [
+            "SOP-05",
+            "KB-10",
+            "KB-14"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5933266282081604
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5496912002563477
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5270105600357056
+            },
+            {
+              "chunk_id": "SOP-02-c002",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.516249418258667
+            },
+            {
+              "chunk_id": "KB-10-c003",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.5002526640892029
+            }
+          ],
+          "top1_score": 0.5933266282081604,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q06",
+          "query_type": "ambigu",
+          "query": "Apa yang harus dilakukan jika perangkat presentasi rusak dan unit pengganti diperlukan?",
+          "expected_doc_ids": [
+            "SOP-01",
+            "KB-13"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c003",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6579108238220215
+            },
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6196002960205078
+            },
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.5945759415626526
+            },
+            {
+              "chunk_id": "KB-10-c002",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.5586645603179932
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.5349138379096985
+            }
+          ],
+          "top1_score": 0.6579108238220215,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q07",
+          "query_type": "relevan",
+          "query": "Bagaimana cara melaporkan kerusakan fasilitas dan membuat tiket?",
+          "expected_doc_ids": [
+            "KB-11"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-04-c003",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.6141350269317627
+            },
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.6067852973937988
+            },
+            {
+              "chunk_id": "SOP-04-c002",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.6055037975311279
+            },
+            {
+              "chunk_id": "KB-11-c000",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.5834848880767822
+            },
+            {
+              "chunk_id": "SOP-05-c001",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5640784502029419
+            }
+          ],
+          "top1_score": 0.6141350269317627,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q08",
+          "query_type": "out_of_domain",
+          "query": "Bagaimana resep membuat nasi goreng seafood?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.1038498729467392
+            },
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.10219641774892807
+            },
+            {
+              "chunk_id": "SOP-01-c003",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.07769101858139038
+            },
+            {
+              "chunk_id": "KB-14-c000",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.06601020693778992
+            },
+            {
+              "chunk_id": "KB-09-c003",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.061338577419519424
+            }
+          ],
+          "top1_score": 0.1038498729467392,
+          "top1_is_expected": null
+        },
+        {
+          "query_id": "Q09",
+          "query_type": "out_of_domain",
+          "query": "Siapa pemenang pertandingan sepak bola tadi malam?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.12436143308877945
+            },
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.12329964339733124
+            },
+            {
+              "chunk_id": "SOP-01-c002",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.12057794630527496
+            },
+            {
+              "chunk_id": "KB-09-c003",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.11520549654960632
+            },
+            {
+              "chunk_id": "KB-14-c003",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.11232206970453262
+            }
+          ],
+          "top1_score": 0.12436143308877945,
+          "top1_is_expected": null
+        }
+      ]
+    },
+    {
+      "chunk_size_words": 100,
+      "overlap_words": 15,
+      "prepend_title": false,
+      "n_chunks": 61,
+      "token_max": 186,
+      "token_p95": 158,
+      "model_max_seq_length": 128,
+      "chunks_over_model_limit": 29,
+      "hit_at_1": 0.7142857142857143,
+      "hit_at_3": 0.8571428571428571,
+      "mrr": 0.7976190476190476,
+      "mean_best_target_cosine": 0.5572469489915031,
+      "ood_top1_scores": [
+        0.09437549859285355,
+        0.1655438244342804
+      ],
+      "query_results": [
+        {
+          "query_id": "Q01",
+          "query_type": "relevan",
+          "query": "Bagaimana menangani proyektor yang tidak menampilkan gambar?",
+          "expected_doc_ids": [
+            "SOP-01"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-07-c000",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.46446970105171204
+            },
+            {
+              "chunk_id": "SOP-08-c003",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.46143198013305664
+            },
+            {
+              "chunk_id": "SOP-07-c003",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.4598870277404785
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.45746129751205444
+            },
+            {
+              "chunk_id": "SOP-01-c003",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.45474714040756226
+            }
+          ],
+          "top1_score": 0.46446970105171204,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q02",
+          "query_type": "sinonim",
+          "query": "Pendingin ruangan mengeluarkan air dan tidak terasa dingin",
+          "expected_doc_ids": [
+            "SOP-02"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-02-c000",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.416087806224823
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.3683336675167084
+            },
+            {
+              "chunk_id": "SOP-02-c003",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.32506534457206726
+            },
+            {
+              "chunk_id": "SOP-02-c004",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.2568458914756775
+            },
+            {
+              "chunk_id": "KB-09-c002",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.22302570939064026
+            }
+          ],
+          "top1_score": 0.416087806224823,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q03",
+          "query_type": "sinonim",
+          "query": "Koneksi internet komputer laboratorium terputus",
+          "expected_doc_ids": [
+            "SOP-03"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.653566300868988
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5552086234092712
+            },
+            {
+              "chunk_id": "KB-10-c002",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.553760826587677
+            },
+            {
+              "chunk_id": "SOP-06-c000",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5126115083694458
+            },
+            {
+              "chunk_id": "KB-12-c001",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5003293752670288
+            }
+          ],
+          "top1_score": 0.653566300868988,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q04",
+          "query_type": "kontekstual",
+          "query": "Apa tindakan ketika jaringan mati saat praktikum berlangsung?",
+          "expected_doc_ids": [
+            "SOP-03",
+            "KB-12"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6397942304611206
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6042803525924683
+            },
+            {
+              "chunk_id": "KB-12-c001",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5647053122520447
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5506606101989746
+            },
+            {
+              "chunk_id": "KB-09-c002",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.5042724609375
+            }
+          ],
+          "top1_score": 0.6397942304611206,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q05",
+          "query_type": "ambigu",
+          "query": "Siapa yang boleh menangani masalah listrik di ruang server?",
+          "expected_doc_ids": [
+            "SOP-05",
+            "KB-10",
+            "KB-14"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-05-c002",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5191695690155029
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5097132325172424
+            },
+            {
+              "chunk_id": "KB-10-c002",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.5076702833175659
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5051039457321167
+            },
+            {
+              "chunk_id": "SOP-03-c003",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.4978167414665222
+            }
+          ],
+          "top1_score": 0.5191695690155029,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q06",
+          "query_type": "ambigu",
+          "query": "Apa yang harus dilakukan jika perangkat presentasi rusak dan unit pengganti diperlukan?",
+          "expected_doc_ids": [
+            "SOP-01",
+            "KB-13"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6351869702339172
+            },
+            {
+              "chunk_id": "KB-13-c003",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6266921758651733
+            },
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6044002175331116
+            },
+            {
+              "chunk_id": "KB-10-c002",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.5828362703323364
+            },
+            {
+              "chunk_id": "SOP-07-c002",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.5476629734039307
+            }
+          ],
+          "top1_score": 0.6351869702339172,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q07",
+          "query_type": "relevan",
+          "query": "Bagaimana cara melaporkan kerusakan fasilitas dan membuat tiket?",
+          "expected_doc_ids": [
+            "KB-11"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.6331826448440552
+            },
+            {
+              "chunk_id": "SOP-04-c003",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.5841149687767029
+            },
+            {
+              "chunk_id": "KB-11-c000",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.579462468624115
+            },
+            {
+              "chunk_id": "SOP-04-c002",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.5723397135734558
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5343889594078064
+            }
+          ],
+          "top1_score": 0.6331826448440552,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q08",
+          "query_type": "out_of_domain",
+          "query": "Bagaimana resep membuat nasi goreng seafood?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "SOP-08-c001",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.09437549859285355
+            },
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.09083247184753418
+            },
+            {
+              "chunk_id": "SOP-08-c003",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.08408012241125107
+            },
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.08051113784313202
+            },
+            {
+              "chunk_id": "KB-14-c000",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.07037076354026794
+            }
+          ],
+          "top1_score": 0.09437549859285355,
+          "top1_is_expected": null
+        },
+        {
+          "query_id": "Q09",
+          "query_type": "out_of_domain",
+          "query": "Siapa pemenang pertandingan sepak bola tadi malam?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-09-c003",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.1655438244342804
+            },
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.12335182726383209
+            },
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.12195105850696564
+            },
+            {
+              "chunk_id": "KB-15-c001",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.11943493783473969
+            },
+            {
+              "chunk_id": "KB-14-c003",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.09907457232475281
+            }
+          ],
+          "top1_score": 0.1655438244342804,
+          "top1_is_expected": null
+        }
+      ]
+    },
+    {
+      "chunk_size_words": 120,
+      "overlap_words": 20,
+      "prepend_title": true,
+      "n_chunks": 46,
+      "token_max": 225,
+      "token_p95": 205,
+      "model_max_seq_length": 128,
+      "chunks_over_model_limit": 40,
+      "hit_at_1": 0.7142857142857143,
+      "hit_at_3": 0.8571428571428571,
+      "mrr": 0.8142857142857143,
+      "mean_best_target_cosine": 0.5611140855721065,
+      "ood_top1_scores": [
+        0.07233499735593796,
+        0.15493223071098328
+      ],
+      "query_results": [
+        {
+          "query_id": "Q01",
+          "query_type": "relevan",
+          "query": "Bagaimana menangani proyektor yang tidak menampilkan gambar?",
+          "expected_doc_ids": [
+            "SOP-01"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.5124736428260803
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.49360376596450806
+            },
+            {
+              "chunk_id": "SOP-08-c002",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.48068690299987793
+            },
+            {
+              "chunk_id": "SOP-07-c002",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.45102518796920776
+            },
+            {
+              "chunk_id": "SOP-07-c000",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.4504210352897644
+            }
+          ],
+          "top1_score": 0.5124736428260803,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q02",
+          "query_type": "sinonim",
+          "query": "Pendingin ruangan mengeluarkan air dan tidak terasa dingin",
+          "expected_doc_ids": [
+            "SOP-02"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-02-c000",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.41918596625328064
+            },
+            {
+              "chunk_id": "SOP-02-c002",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.3256032466888428
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.22023382782936096
+            },
+            {
+              "chunk_id": "KB-12-c001",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.19481950998306274
+            },
+            {
+              "chunk_id": "SOP-01-c001",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.18607857823371887
+            }
+          ],
+          "top1_score": 0.41918596625328064,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q03",
+          "query_type": "sinonim",
+          "query": "Koneksi internet komputer laboratorium terputus",
+          "expected_doc_ids": [
+            "SOP-03"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6025023460388184
+            },
+            {
+              "chunk_id": "SOP-06-c001",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5425241589546204
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5264185667037964
+            },
+            {
+              "chunk_id": "SOP-06-c000",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5187439918518066
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.47648367285728455
+            }
+          ],
+          "top1_score": 0.6025023460388184,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q04",
+          "query_type": "kontekstual",
+          "query": "Apa tindakan ketika jaringan mati saat praktikum berlangsung?",
+          "expected_doc_ids": [
+            "SOP-03",
+            "KB-12"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6308243274688721
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5822096467018127
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5273267030715942
+            },
+            {
+              "chunk_id": "SOP-04-c001",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.49281740188598633
+            },
+            {
+              "chunk_id": "KB-12-c001",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.49245473742485046
+            }
+          ],
+          "top1_score": 0.6308243274688721,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q05",
+          "query_type": "ambigu",
+          "query": "Siapa yang boleh menangani masalah listrik di ruang server?",
+          "expected_doc_ids": [
+            "SOP-05",
+            "KB-10",
+            "KB-14"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5335783958435059
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.516249418258667
+            },
+            {
+              "chunk_id": "KB-10-c002",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.5049900412559509
+            },
+            {
+              "chunk_id": "SOP-04-c001",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.5024121999740601
+            },
+            {
+              "chunk_id": "SOP-05-c001",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.4937758147716522
+            }
+          ],
+          "top1_score": 0.5335783958435059,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q06",
+          "query_type": "ambigu",
+          "query": "Apa yang harus dilakukan jika perangkat presentasi rusak dan unit pengganti diperlukan?",
+          "expected_doc_ids": [
+            "SOP-01",
+            "KB-13"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6646189093589783
+            },
+            {
+              "chunk_id": "KB-12-c002",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5695852041244507
+            },
+            {
+              "chunk_id": "SOP-04-c001",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.5665867328643799
+            },
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.5612049698829651
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.5349138379096985
+            }
+          ],
+          "top1_score": 0.6646189093589783,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q07",
+          "query_type": "relevan",
+          "query": "Bagaimana cara melaporkan kerusakan fasilitas dan membuat tiket?",
+          "expected_doc_ids": [
+            "KB-11"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-04-c002",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.6141350269317627
+            },
+            {
+              "chunk_id": "SOP-04-c001",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.6109171509742737
+            },
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.6067852973937988
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5973860025405884
+            },
+            {
+              "chunk_id": "KB-11-c000",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.5834848880767822
+            }
+          ],
+          "top1_score": 0.6141350269317627,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q08",
+          "query_type": "out_of_domain",
+          "query": "Bagaimana resep membuat nasi goreng seafood?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "SOP-08-c001",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.07233499735593796
+            },
+            {
+              "chunk_id": "SOP-08-c002",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.06650394201278687
+            },
+            {
+              "chunk_id": "KB-14-c000",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.06601020693778992
+            },
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.061117563396692276
+            },
+            {
+              "chunk_id": "SOP-07-c000",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.060911428183317184
+            }
+          ],
+          "top1_score": 0.07233499735593796,
+          "top1_is_expected": null
+        },
+        {
+          "query_id": "Q09",
+          "query_type": "out_of_domain",
+          "query": "Siapa pemenang pertandingan sepak bola tadi malam?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-14-c002",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.15493223071098328
+            },
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.12436143308877945
+            },
+            {
+              "chunk_id": "KB-15-c001",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.11419017612934113
+            },
+            {
+              "chunk_id": "SOP-01-c002",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.10515773296356201
+            },
+            {
+              "chunk_id": "KB-10-c002",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.10389503836631775
+            }
+          ],
+          "top1_score": 0.15493223071098328,
+          "top1_is_expected": null
+        }
+      ]
+    },
+    {
+      "chunk_size_words": 120,
+      "overlap_words": 20,
+      "prepend_title": false,
+      "n_chunks": 46,
+      "token_max": 210,
+      "token_p95": 190,
+      "model_max_seq_length": 128,
+      "chunks_over_model_limit": 34,
+      "hit_at_1": 0.7142857142857143,
+      "hit_at_3": 0.7142857142857143,
+      "mrr": 0.7738095238095238,
+      "mean_best_target_cosine": 0.5606432982853481,
+      "ood_top1_scores": [
+        0.1110658124089241,
+        0.1405021697282791
+      ],
+      "query_results": [
+        {
+          "query_id": "Q01",
+          "query_type": "relevan",
+          "query": "Bagaimana menangani proyektor yang tidak menampilkan gambar?",
+          "expected_doc_ids": [
+            "SOP-01"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.5325435996055603
+            },
+            {
+              "chunk_id": "SOP-07-c002",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.4598870277404785
+            },
+            {
+              "chunk_id": "SOP-08-c002",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.4588906764984131
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.45746129751205444
+            },
+            {
+              "chunk_id": "SOP-08-c000",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.4222816526889801
+            }
+          ],
+          "top1_score": 0.5325435996055603,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q02",
+          "query_type": "sinonim",
+          "query": "Pendingin ruangan mengeluarkan air dan tidak terasa dingin",
+          "expected_doc_ids": [
+            "SOP-02"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-02-c000",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.4421916604042053
+            },
+            {
+              "chunk_id": "SOP-02-c002",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.32363948225975037
+            },
+            {
+              "chunk_id": "KB-12-c001",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.21860171854496002
+            },
+            {
+              "chunk_id": "SOP-04-c000",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.20728763937950134
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.16183587908744812
+            }
+          ],
+          "top1_score": 0.4421916604042053,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q03",
+          "query_type": "sinonim",
+          "query": "Koneksi internet komputer laboratorium terputus",
+          "expected_doc_ids": [
+            "SOP-03"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.653566300868988
+            },
+            {
+              "chunk_id": "SOP-06-c001",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5448269844055176
+            },
+            {
+              "chunk_id": "KB-12-c000",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5294815301895142
+            },
+            {
+              "chunk_id": "SOP-06-c000",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5126115083694458
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.4921896457672119
+            }
+          ],
+          "top1_score": 0.653566300868988,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q04",
+          "query_type": "kontekstual",
+          "query": "Apa tindakan ketika jaringan mati saat praktikum berlangsung?",
+          "expected_doc_ids": [
+            "SOP-03",
+            "KB-12"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6397942304611206
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6141321659088135
+            },
+            {
+              "chunk_id": "KB-12-c000",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5435864329338074
+            },
+            {
+              "chunk_id": "KB-12-c001",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5206767916679382
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5024015307426453
+            }
+          ],
+          "top1_score": 0.6397942304611206,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q05",
+          "query_type": "ambigu",
+          "query": "Siapa yang boleh menangani masalah listrik di ruang server?",
+          "expected_doc_ids": [
+            "SOP-05",
+            "KB-10",
+            "KB-14"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5248271822929382
+            },
+            {
+              "chunk_id": "SOP-05-c001",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5191695690155029
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5018005967140198
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.49555736780166626
+            },
+            {
+              "chunk_id": "KB-11-c001",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.48804426193237305
+            }
+          ],
+          "top1_score": 0.5248271822929382,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q06",
+          "query_type": "ambigu",
+          "query": "Apa yang harus dilakukan jika perangkat presentasi rusak dan unit pengganti diperlukan?",
+          "expected_doc_ids": [
+            "SOP-01",
+            "KB-13"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6271999478340149
+            },
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6005340814590454
+            },
+            {
+              "chunk_id": "KB-12-c002",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5870500802993774
+            },
+            {
+              "chunk_id": "SOP-07-c001",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.5476629734039307
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.539475679397583
+            }
+          ],
+          "top1_score": 0.6271999478340149,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q07",
+          "query_type": "relevan",
+          "query": "Bagaimana cara melaporkan kerusakan fasilitas dan membuat tiket?",
+          "expected_doc_ids": [
+            "KB-11"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.6331826448440552
+            },
+            {
+              "chunk_id": "KB-09-c002",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.6156249046325684
+            },
+            {
+              "chunk_id": "SOP-04-c001",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.607973575592041
+            },
+            {
+              "chunk_id": "SOP-04-c002",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.5841149687767029
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.582707405090332
+            }
+          ],
+          "top1_score": 0.6331826448440552,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q08",
+          "query_type": "out_of_domain",
+          "query": "Bagaimana resep membuat nasi goreng seafood?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "SOP-08-c001",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.1110658124089241
+            },
+            {
+              "chunk_id": "SOP-08-c002",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.07369165867567062
+            },
+            {
+              "chunk_id": "KB-14-c000",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.07037076354026794
+            },
+            {
+              "chunk_id": "SOP-06-c000",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.0552973710000515
+            },
+            {
+              "chunk_id": "SOP-07-c001",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.05413106828927994
+            }
+          ],
+          "top1_score": 0.1110658124089241,
+          "top1_is_expected": null
+        },
+        {
+          "query_id": "Q09",
+          "query_type": "out_of_domain",
+          "query": "Siapa pemenang pertandingan sepak bola tadi malam?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-09-c002",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.1405021697282791
+            },
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.12195105850696564
+            },
+            {
+              "chunk_id": "KB-14-c002",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.12064047157764435
+            },
+            {
+              "chunk_id": "KB-15-c001",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.09850552678108215
+            },
+            {
+              "chunk_id": "SOP-01-c002",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.08495616912841797
+            }
+          ],
+          "top1_score": 0.1405021697282791,
+          "top1_is_expected": null
+        }
+      ]
+    },
+    {
+      "chunk_size_words": 150,
+      "overlap_words": 30,
+      "prepend_title": true,
+      "n_chunks": 38,
+      "token_max": 288,
+      "token_p95": 256,
+      "model_max_seq_length": 128,
+      "chunks_over_model_limit": 32,
+      "hit_at_1": 0.8571428571428571,
+      "hit_at_3": 0.8571428571428571,
+      "mrr": 0.8928571428571429,
+      "mean_best_target_cosine": 0.5712132751941681,
+      "ood_top1_scores": [
+        0.07769101858139038,
+        0.15774402022361755
+      ],
+      "query_results": [
+        {
+          "query_id": "Q01",
+          "query_type": "relevan",
+          "query": "Bagaimana menangani proyektor yang tidak menampilkan gambar?",
+          "expected_doc_ids": [
+            "SOP-01"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-01-c002",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.5245609283447266
+            },
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.5182936191558838
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.49360376596450806
+            },
+            {
+              "chunk_id": "SOP-07-c000",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.4504210352897644
+            },
+            {
+              "chunk_id": "SOP-08-c000",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.41255754232406616
+            }
+          ],
+          "top1_score": 0.5245609283447266,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q02",
+          "query_type": "sinonim",
+          "query": "Pendingin ruangan mengeluarkan air dan tidak terasa dingin",
+          "expected_doc_ids": [
+            "SOP-02"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-02-c000",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.41918596625328064
+            },
+            {
+              "chunk_id": "SOP-02-c002",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.21104645729064941
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.20777155458927155
+            },
+            {
+              "chunk_id": "SOP-04-c000",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.16838982701301575
+            },
+            {
+              "chunk_id": "KB-09-c001",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.15222300589084625
+            }
+          ],
+          "top1_score": 0.41918596625328064,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q03",
+          "query_type": "sinonim",
+          "query": "Koneksi internet komputer laboratorium terputus",
+          "expected_doc_ids": [
+            "SOP-03"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6025023460388184
+            },
+            {
+              "chunk_id": "SOP-06-c000",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5338766574859619
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5053791403770447
+            },
+            {
+              "chunk_id": "SOP-05-c001",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.48830512166023254
+            },
+            {
+              "chunk_id": "KB-10-c002",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.46657702326774597
+            }
+          ],
+          "top1_score": 0.6025023460388184,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q04",
+          "query_type": "kontekstual",
+          "query": "Apa tindakan ketika jaringan mati saat praktikum berlangsung?",
+          "expected_doc_ids": [
+            "SOP-03",
+            "KB-12"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6308243274688721
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5273267030715942
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.4993315041065216
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.49034157395362854
+            },
+            {
+              "chunk_id": "SOP-05-c002",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.47766733169555664
+            }
+          ],
+          "top1_score": 0.6308243274688721,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q05",
+          "query_type": "ambigu",
+          "query": "Siapa yang boleh menangani masalah listrik di ruang server?",
+          "expected_doc_ids": [
+            "SOP-05",
+            "KB-10",
+            "KB-14"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-05-c002",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5872148275375366
+            },
+            {
+              "chunk_id": "SOP-05-c001",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5569379329681396
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5335783958435059
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5232248902320862
+            },
+            {
+              "chunk_id": "KB-10-c002",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.5049900412559509
+            }
+          ],
+          "top1_score": 0.5872148275375366,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q06",
+          "query_type": "ambigu",
+          "query": "Apa yang harus dilakukan jika perangkat presentasi rusak dan unit pengganti diperlukan?",
+          "expected_doc_ids": [
+            "SOP-01",
+            "KB-13"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6507196426391602
+            },
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.5952644944190979
+            },
+            {
+              "chunk_id": "SOP-07-c001",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.5940237045288086
+            },
+            {
+              "chunk_id": "SOP-05-c001",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5403177738189697
+            },
+            {
+              "chunk_id": "SOP-04-c001",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.536379873752594
+            }
+          ],
+          "top1_score": 0.6507196426391602,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q07",
+          "query_type": "relevan",
+          "query": "Bagaimana cara melaporkan kerusakan fasilitas dan membuat tiket?",
+          "expected_doc_ids": [
+            "KB-11"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-04-c001",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.6117081642150879
+            },
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.6067852973937988
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5973860025405884
+            },
+            {
+              "chunk_id": "KB-11-c000",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.5834848880767822
+            },
+            {
+              "chunk_id": "SOP-07-c001",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.5485771894454956
+            }
+          ],
+          "top1_score": 0.6117081642150879,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q08",
+          "query_type": "out_of_domain",
+          "query": "Bagaimana resep membuat nasi goreng seafood?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "SOP-01-c002",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.07769101858139038
+            },
+            {
+              "chunk_id": "KB-14-c000",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.06601020693778992
+            },
+            {
+              "chunk_id": "SOP-07-c000",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.060911428183317184
+            },
+            {
+              "chunk_id": "SOP-07-c001",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.050727635622024536
+            },
+            {
+              "chunk_id": "KB-09-c002",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.04998587816953659
+            }
+          ],
+          "top1_score": 0.07769101858139038,
+          "top1_is_expected": null
+        },
+        {
+          "query_id": "Q09",
+          "query_type": "out_of_domain",
+          "query": "Siapa pemenang pertandingan sepak bola tadi malam?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-09-c002",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.15774402022361755
+            },
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.12436143308877945
+            },
+            {
+              "chunk_id": "KB-15-c001",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.11169977486133575
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.10519120842218399
+            },
+            {
+              "chunk_id": "SOP-07-c001",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.10471311956644058
+            }
+          ],
+          "top1_score": 0.15774402022361755,
+          "top1_is_expected": null
+        }
+      ]
+    },
+    {
+      "chunk_size_words": 150,
+      "overlap_words": 30,
+      "prepend_title": false,
+      "n_chunks": 38,
+      "token_max": 273,
+      "token_p95": 241,
+      "model_max_seq_length": 128,
+      "chunks_over_model_limit": 30,
+      "hit_at_1": 0.7142857142857143,
+      "hit_at_3": 1.0,
+      "mrr": 0.8333333333333333,
+      "mean_best_target_cosine": 0.563229135104588,
+      "ood_top1_scores": [
+        0.07037076354026794,
+        0.17719878256320953
+      ],
+      "query_results": [
+        {
+          "query_id": "Q01",
+          "query_type": "relevan",
+          "query": "Bagaimana menangani proyektor yang tidak menampilkan gambar?",
+          "expected_doc_ids": [
+            "SOP-01"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.5073002576828003
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.45746129751205444
+            },
+            {
+              "chunk_id": "SOP-01-c002",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.45474714040756226
+            },
+            {
+              "chunk_id": "SOP-08-c000",
+              "doc_id": "SOP-08",
+              "cosine_similarity": 0.4222816824913025
+            },
+            {
+              "chunk_id": "KB-13-c000",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.3864987790584564
+            }
+          ],
+          "top1_score": 0.5073002576828003,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q02",
+          "query_type": "sinonim",
+          "query": "Pendingin ruangan mengeluarkan air dan tidak terasa dingin",
+          "expected_doc_ids": [
+            "SOP-02"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-02-c000",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.4421916604042053
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.22745293378829956
+            },
+            {
+              "chunk_id": "KB-09-c001",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.22302570939064026
+            },
+            {
+              "chunk_id": "SOP-04-c000",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.20728763937950134
+            },
+            {
+              "chunk_id": "SOP-01-c001",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.17187461256980896
+            }
+          ],
+          "top1_score": 0.4421916604042053,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q03",
+          "query_type": "sinonim",
+          "query": "Koneksi internet komputer laboratorium terputus",
+          "expected_doc_ids": [
+            "SOP-03"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.653566300868988
+            },
+            {
+              "chunk_id": "KB-12-c000",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5294815301895142
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5223935842514038
+            },
+            {
+              "chunk_id": "SOP-06-c000",
+              "doc_id": "SOP-06",
+              "cosine_similarity": 0.5162743330001831
+            },
+            {
+              "chunk_id": "KB-10-c002",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.4414457678794861
+            }
+          ],
+          "top1_score": 0.653566300868988,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q04",
+          "query_type": "kontekstual",
+          "query": "Apa tindakan ketika jaringan mati saat praktikum berlangsung?",
+          "expected_doc_ids": [
+            "SOP-03",
+            "KB-12"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-03-c000",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.6397942304611206
+            },
+            {
+              "chunk_id": "KB-12-c000",
+              "doc_id": "KB-12",
+              "cosine_similarity": 0.5435864329338074
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5319802165031433
+            },
+            {
+              "chunk_id": "KB-09-c001",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.5042724609375
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5024015307426453
+            }
+          ],
+          "top1_score": 0.6397942304611206,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q05",
+          "query_type": "ambigu",
+          "query": "Siapa yang boleh menangani masalah listrik di ruang server?",
+          "expected_doc_ids": [
+            "SOP-05",
+            "KB-10",
+            "KB-14"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "SOP-05-c002",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5595426559448242
+            },
+            {
+              "chunk_id": "SOP-03-c001",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.5393160581588745
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.5248271822929382
+            },
+            {
+              "chunk_id": "KB-11-c001",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.515333890914917
+            },
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.48943716287612915
+            }
+          ],
+          "top1_score": 0.5595426559448242,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q06",
+          "query_type": "ambigu",
+          "query": "Apa yang harus dilakukan jika perangkat presentasi rusak dan unit pengganti diperlukan?",
+          "expected_doc_ids": [
+            "SOP-01",
+            "KB-13"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-13-c001",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6105853319168091
+            },
+            {
+              "chunk_id": "KB-13-c002",
+              "doc_id": "KB-13",
+              "cosine_similarity": 0.6055325865745544
+            },
+            {
+              "chunk_id": "SOP-07-c001",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.5556607246398926
+            },
+            {
+              "chunk_id": "SOP-01-c000",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.539475679397583
+            },
+            {
+              "chunk_id": "SOP-04-c001",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.5260936617851257
+            }
+          ],
+          "top1_score": 0.6105853319168091,
+          "top1_is_expected": true
+        },
+        {
+          "query_id": "Q07",
+          "query_type": "relevan",
+          "query": "Bagaimana cara melaporkan kerusakan fasilitas dan membuat tiket?",
+          "expected_doc_ids": [
+            "KB-11"
+          ],
+          "top_results": [
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.6331826448440552
+            },
+            {
+              "chunk_id": "SOP-05-c000",
+              "doc_id": "SOP-05",
+              "cosine_similarity": 0.582707405090332
+            },
+            {
+              "chunk_id": "KB-11-c000",
+              "doc_id": "KB-11",
+              "cosine_similarity": 0.579462468624115
+            },
+            {
+              "chunk_id": "KB-15-c001",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.5777767896652222
+            },
+            {
+              "chunk_id": "SOP-04-c001",
+              "doc_id": "SOP-04",
+              "cosine_similarity": 0.5638254880905151
+            }
+          ],
+          "top1_score": 0.6331826448440552,
+          "top1_is_expected": false
+        },
+        {
+          "query_id": "Q08",
+          "query_type": "out_of_domain",
+          "query": "Bagaimana resep membuat nasi goreng seafood?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-14-c000",
+              "doc_id": "KB-14",
+              "cosine_similarity": 0.07037076354026794
+            },
+            {
+              "chunk_id": "KB-10-c001",
+              "doc_id": "KB-10",
+              "cosine_similarity": 0.06349629163742065
+            },
+            {
+              "chunk_id": "SOP-02-c001",
+              "doc_id": "SOP-02",
+              "cosine_similarity": 0.06340770423412323
+            },
+            {
+              "chunk_id": "SOP-01-c001",
+              "doc_id": "SOP-01",
+              "cosine_similarity": 0.05782186985015869
+            },
+            {
+              "chunk_id": "KB-09-c002",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.04883156344294548
+            }
+          ],
+          "top1_score": 0.07037076354026794,
+          "top1_is_expected": null
+        },
+        {
+          "query_id": "Q09",
+          "query_type": "out_of_domain",
+          "query": "Siapa pemenang pertandingan sepak bola tadi malam?",
+          "expected_doc_ids": [],
+          "top_results": [
+            {
+              "chunk_id": "KB-09-c002",
+              "doc_id": "KB-09",
+              "cosine_similarity": 0.17719878256320953
+            },
+            {
+              "chunk_id": "KB-15-c000",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.12195105850696564
+            },
+            {
+              "chunk_id": "KB-15-c001",
+              "doc_id": "KB-15",
+              "cosine_similarity": 0.10686296224594116
+            },
+            {
+              "chunk_id": "SOP-07-c001",
+              "doc_id": "SOP-07",
+              "cosine_similarity": 0.09127911925315857
+            },
+            {
+              "chunk_id": "SOP-03-c002",
+              "doc_id": "SOP-03",
+              "cosine_similarity": 0.08738695085048676
+            }
+          ],
+          "top1_score": 0.17719878256320953,
+          "top1_is_expected": null
+        }
+      ]
+    }
+  ],
+  "notes": "Cosine dihitung dari embedding ternormalisasi. Hit@k menghitung dokumen target yang muncul pada k hasil teratas. OOD hanya melaporkan skor top-1; ambang penolakan harus ditentukan dari validasi, bukan ditebak."
+}
