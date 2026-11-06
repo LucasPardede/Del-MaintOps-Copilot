@@ -7,19 +7,22 @@ requires-python = ">=3.10"
 authors = [
     { name = "Kelompok Del-MaintOps Copilot" }
 ]
-dependencies = []
+dependencies = [
+    "chromadb>=1.0.0",
+    "sentence-transformers>=3.0.0",
+]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0.0",
 ]
 
-# Dependensi berikut akan ditambahkan progresif di Milestone 2-5:
-# google-genai, chromadb, sentence-transformers, gradio, fastmcp, opencv-python, pydantic
-
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.uv]
+package = false
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
