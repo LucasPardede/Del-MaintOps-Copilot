@@ -1,0 +1,20 @@
+[
+  {"id": "Q01", "query": "alat yang memancarkan slide ke dinding kelas tiba-tiba mati pas dosen sedang mengajar", "type": "synonym", "expected_doc_ids": ["SOP-01"], "notes": "Gejala proyektor mati saat KBM tanpa kata kunci SOP-01 (proyektor/infokus/layar/hdmi/tayang)."},
+  {"id": "Q02", "query": "ruangan terasa gerah dan mesin penyejuk meneteskan air ke atas perangkat praktikum", "type": "synonym", "expected_doc_ids": ["SOP-02"], "notes": "Parafrase kasus AC bocor di Labkom; tanpa kata ac/pendingin/dingin/bocor."},
+  {"id": "Q03", "query": "mahasiswa di lab tidak bisa membuka situs apa pun karena sambungan online terputus", "type": "synonym", "expected_doc_ids": ["SOP-03"], "notes": "Gangguan jaringan lab dinyatakan dengan 'sambungan online'; tanpa jaringan/lan/internet/koneksi/wifi."},
+  {"id": "Q04", "query": "air keran di kamar kecil lantai dua mengalir terus dan tidak bisa dimatikan", "type": "synonym", "expected_doc_ids": ["SOP-04"], "notes": "Fasilitas penunjang umum (kran air/sanitasi) tanpa kata toilet/wastafel/pintu."},
+  {"id": "Q05", "query": "ada percikan api dan arus padam di ruang server", "type": "synonym", "expected_doc_ids": ["SOP-05", "KB-10"], "notes": "Korsleting panel server; SOP-05 utama, KB-10 (K3 kelistrikan) relevan. Tanpa kata listrik/korsleting/mcb."},
+  {"id": "Q06", "query": "mesin di lab tidak mau masuk ke sistem operasi dan berbunyi bip berulang saat dinyalakan", "type": "synonym", "expected_doc_ids": ["SOP-06"], "notes": "Gagal masuk OS + beep code; tanpa komputer/pc/windows/boot."},
+  {"id": "Q07", "query": "papan interaktif di ruang rapat tidak merespons sentuhan jari dosen", "type": "synonym", "expected_doc_ids": ["SOP-07"], "notes": "Idea Hub hang/kalibrasi sentuh; tanpa idea hub/touchscreen/layar sentuh."},
+  {"id": "Q08", "query": "alat pemantau di sudut laboratorium menghadap ke atap dan hasil pantauannya tidak tersimpan", "type": "synonym", "expected_doc_ids": ["SOP-08"], "notes": "Kamera bergeser menghadap plafon dan rekaman tidak tersimpan; tanpa cctv/kamera/plafon/rekaman/dvr."},
+  {"id": "Q09", "query": "alat di lab rusak", "type": "ambiguous", "expected_doc_ids": ["SOP-06", "KB-11", "KB-13"], "notes": "Kueri sangat umum. Dianggap berhasil bila salah satu dokumen terkait (SOP perangkat lab, panduan pelaporan, perangkat cadangan) muncul di top-3."},
+  {"id": "Q10", "query": "siapa yang menangani gangguan ketika ujian sedang berlangsung", "type": "ambiguous", "expected_doc_ids": ["KB-12", "KB-14", "KB-09"], "notes": "Menyinggung kebijakan lab saat ujian, pembagian teknisi, dan prioritas/eskalasi."},
+  {"id": "Q11", "query": "resep rendang yang enak", "type": "ood_far", "expected_doc_ids": [], "notes": "Topik kuliner, sangat jauh dari domain."},
+  {"id": "Q12", "query": "jadwal pertandingan liga Inggris", "type": "ood_far", "expected_doc_ids": [], "notes": "Topik olahraga."},
+  {"id": "Q13", "query": "cara menanam cabai di pekarangan rumah", "type": "ood_far", "expected_doc_ids": [], "notes": "Topik pertanian."},
+  {"id": "Q14", "query": "harga tiket pesawat Jakarta ke Medan", "type": "ood_far", "expected_doc_ids": [], "notes": "Topik perjalanan."},
+  {"id": "Q15", "query": "cara mengajukan beasiswa", "type": "ood_near", "expected_doc_ids": [], "notes": "Urusan kampus tetapi bukan fasilitas/pemeliharaan."},
+  {"id": "Q16", "query": "kapan batas pengisian KRS", "type": "ood_near", "expected_doc_ids": [], "notes": "Urusan akademik; kosakata kampus mirip korpus."},
+  {"id": "Q17", "query": "prosedur pembayaran uang kuliah", "type": "ood_near", "expected_doc_ids": [], "notes": "Kata 'prosedur' sangat mirip gaya SOP; potensi false accept."},
+  {"id": "Q18", "query": "bagaimana mendaftar sidang tugas akhir", "type": "ood_near", "expected_doc_ids": [], "notes": "Urusan akademik kampus."}
+]
