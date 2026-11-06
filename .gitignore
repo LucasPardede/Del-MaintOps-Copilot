@@ -19,7 +19,7 @@ uv.lock.bak
 *.key
 
 # ChromaDB / data (milestone lanjutan)
-chroma_db/
+chroma_db*/
 *.sqlite3
 
 # Testing & coverage
